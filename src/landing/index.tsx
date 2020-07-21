@@ -21,6 +21,7 @@ export default function LandingPage() {
           <h1>Testing stuff</h1>
           <div>
             <Link to="/schedules">See all test schedules</Link>
+            <Link to="/dialogue"> Dialogue</Link>
           </div>
         </section>
       </header>

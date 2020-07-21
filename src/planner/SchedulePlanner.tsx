@@ -190,6 +190,8 @@ class SchedulePlanner extends React.Component<SchedulePlannerProps, SchedulePlan
     const semesters = this.semesters?.map((semester) => (
       <SemesterBlock key={semester.term} semester={semester} enabled={this.inSchedulingMode} />
     ));
+
+    
     return (
       <Wrapper>
         {/* TODO: Refractor SchedulerHeader into separate component */}

@@ -59,6 +59,7 @@ export default class SemesterBlock extends React.Component<SemesterBlockProps, S
   }
 
   render() {
+    console.log(this.state)
     const displayedCourses = this.props.semester.courses.map((course, index) => {
       return (
         <CourseCard

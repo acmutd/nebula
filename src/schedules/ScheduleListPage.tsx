@@ -6,6 +6,8 @@ import { Schedule, StudentData } from '../store/user/types';
 import { addScheduleToUser, removeSchedule, refreshSchedules } from '../store/user/thunks';
 import { AppState } from '../store';
 
+import SemesterBlock  from '../planner/SemesterBlock'; 
+
 interface ScheduleListPageProps extends RouteComponentProps {
   user: StudentData;
   schedules: Array<Schedule>;
@@ -49,6 +51,7 @@ class ScheduleListPage extends React.Component<ScheduleListPageProps> {
   }
 
   render() {
+    console.log(this.state)
     return (
       <main>
         <h1>Schedules for current user</h1>

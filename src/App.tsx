@@ -8,10 +8,14 @@ import {
 import LandingPage from './landing';
 import SchedulePlanner from './planner/SchedulePlanner';
 import { ScheduleListPage } from './schedules';
+import Dialogue from './landing/dialogue'; 
 import './App.css';
+
 
 /**
  * The root component for the Comet Planning app.
+ * 
+ * 
  */
 class App extends React.Component<RouteComponentProps> {
   public render(): ReactElement {
@@ -26,8 +30,11 @@ class App extends React.Component<RouteComponentProps> {
         <Route path="/auth">
           {/* TODO: Handle sign-in */}
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <LandingPage></LandingPage>
+        </Route>
+        <Route exact path="/dialogue">
+          <Dialogue> </Dialogue>
         </Route>
       </Switch>
     );
