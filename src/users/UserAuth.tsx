@@ -5,6 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { StudentData } from '../store/user/types';
 import { RootState } from '../store/reducers';
 import { updateStudentData } from '../store/user/thunks';
+import { fetchStudent } from '../lib/api/index';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -41,6 +42,7 @@ export default function UserAuth() {
       attemptedCourses: [],
       requirements: [],
     };
+    console.log(student);
     updateStudentData(student);
     console.log('added to database with id', user.sub);
     return <></>;
@@ -65,7 +67,7 @@ export default function UserAuth() {
             variant="contained"
             className={classes.button}
             color="secondary"
-            onClick={() => logout()}
+            onClick={() => logoutWithRedirect()}
           >
             Sign out
           </Button>

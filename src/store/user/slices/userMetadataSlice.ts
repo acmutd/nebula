@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchUserById } from '../thunks';
+import { storeUser } from '../../../lib/storage';
 import { StudentData } from '../types';
 
 export interface UserMetadataSliceState {
@@ -41,8 +42,9 @@ const userMetadataSlice = createSlice({
      * Should be called on sign-in.
      */
     updateUser(state, action: { payload: { user: StudentData } }) {
-      const updatedUser = action.payload.user;
-      state.data = updatedUser;
+      const { user } = action.payload;
+      storeUser(user);
+      state.data = user;
     },
     signOut(state, action) {
       state.data = initialState.data;

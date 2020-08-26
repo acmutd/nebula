@@ -102,7 +102,9 @@ export const updateStudentData = createAsyncThunk(
   async (user: StudentData, { dispatch }) => {
     try {
       // TODO: Update user data in store
-      dispatch(updateUser({ user }));
+      await dispatch(updateUser({ user }));
+      //await updateUser({ user });
+      console.log('user');
     } catch (e) {
       throw e;
     }

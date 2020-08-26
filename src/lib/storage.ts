@@ -1,4 +1,4 @@
-import { Schedule } from '../store/user/types';
+import { Schedule, StudentData } from '../store/user/types';
 
 const KEY_SCHEDULES = 'schedules';
 
@@ -10,6 +10,12 @@ const KEY_USERS = 'users';
 type ScheduleStorageType = {
   schedules: {
     [id: string]: Schedule;
+  };
+};
+
+type StudentStorageType = {
+  student: {
+    [id: string]: StudentData;
   };
 };
 
@@ -36,6 +42,16 @@ export function storeSchedule(userId: string, data: Schedule): void {
   schedules[data.id] = data;
   // localStorage.setItem(generateKey(userId, data.id), JSON.stringify({ schedules }));
   localStorage.setItem(KEY_SCHEDULES, JSON.stringify({ schedules }));
+}
+
+export function storeUser(data: StudentData): void {
+  const { student } = JSON.parse(
+    localStorage.getItem(KEY_USERS) || '{ "user": {} }',
+  ) as StudentStorageType;
+  student[data.id] = data;
+  // localStorage.setItem(generateKey(userId, data.id), JSON.stringify({ schedules }));
+  localStorage.setItem(KEY_USERS, JSON.stringify({ data }));
+  localStorage.setItem('Test', 'Hello');
 }
 
 export function loadLocalSchedule(scheduleId: string): Schedule {
