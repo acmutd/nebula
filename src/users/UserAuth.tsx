@@ -25,12 +25,17 @@ export default function UserAuth() {
   const classes = useStyles();
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
+  if (isAuthenticated) {
+    SaveUserToLocalStorage();
+    SaveUserToFirebase();
+  }
+
   const logoutWithRedirect = () =>
     logout({
       returnTo: window.location.origin,
     });
 
-  function SaveUser() {
+  function SaveUserToLocalStorage() {
     const student: StudentData = {
       id: user.sub,
       name: '',
@@ -44,8 +49,12 @@ export default function UserAuth() {
     };
     console.log(student);
     updateStudentData(student);
+  }
+
+  async function SaveUserToFirebase() {
+    const response = await fetchStudent(user.sub);
+    console.log(response);
     console.log('added to database with id', user.sub);
-    return <></>;
   }
 
   return (
@@ -62,7 +71,6 @@ export default function UserAuth() {
       )}
       {isAuthenticated && (
         <>
-          <SaveUser />
           <Button
             variant="contained"
             className={classes.button}
