@@ -1,6 +1,7 @@
 import React from 'react';
 import { CourseAttempt } from '../../../../modules/auth/auth-context';
-
+import { SemesterCode, GPA_MAPPINGS, Grade } from '../../../../modules/common/data.ts';
+import { CourseAudit } from './CourseAudit.tsx';
 /**
  * Component properties for a StudentHistoryView.
  */

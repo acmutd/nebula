@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { useAuthContext } from '../../modules/auth/auth-context';
 import { useUserProfileData } from '../../modules/profile/userProfileData';
+//TEMPORARY
+import steve from '../../components/planner/GeneratePDF/GeneratePDF';
+import sbeven from '../../components/planner/history/StudentHistoryView/CourseAudit';
 
 /**
  * A page containing student attributes and other account settings.
@@ -16,6 +19,8 @@ export default function ProfilePage(): JSX.Element {
       <div className="max-w-6xl">
         <section className="p-4">
           <div className="text-headline5 font-bold">Your information</div>
+          {steve()}
+          {sbeven()}
           <div className="md:grid-col-3">
             <div>
               <div className="text-body1">Preferred Name</div>
