@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
   },
   tablet: {
     width: '24%',
-    display: 'inline-block',
   },
   clickable: {
     cursor: 'pointer',
